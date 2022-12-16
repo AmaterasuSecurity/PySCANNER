@@ -53,6 +53,16 @@ client = msfrpc.MsfRpcClient('your_username', 'your_password')
 # Authenticate with the client
 client.login()
 
+# List all available exploits
+exploits = client.modules.exploits
+
+# Print the names of the available exploits
+for exploit in exploits:
+    print(exploit['name'])
+
+# Select a specific exploit by name
+exploit_name = 'windows/smb/ms17_010_eternalblue'
+client.modules.use(exploit_name)
 
         # Close connection
         con
